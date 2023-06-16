@@ -1,0 +1,55 @@
+{% extends 'layout.html'%}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group-head">
+            <legend class="title form-t">Upload Geolocation</legend>
+            <div class="form-group">
+                {{ form.image.label(class="form-control-label")}}
+                {% if form.image.errors%}
+                    {{form.image(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.image.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.image(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>    
+            <div class="form-group">
+                {{ form.difficulty.label(class="form-control-label")}}
+                {% if form.difficulty.errors%}
+                    {{form.difficulty(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.difficulty.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.difficulty(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.location.label(class="form-control-label")}}
+                {% if form.location.errors%}
+                    {{form.location(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.location.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.location(class="form-control form-control-lg")}}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.submit(class="") }}
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+{% endblock %}

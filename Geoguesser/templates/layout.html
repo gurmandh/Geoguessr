@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale-1" />
+        {% if title %}
+            <title>GeoGuesser - {{ title }}</title>
+        {% else %}
+            <title>GeoGuesser</title>
+        {% endif%}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/geo_main.css')}}"/>
+    </head>
+    <body>
+        {% include 'header.html' %}
+            <main role="main" class="container">
+                {% with messages = get_flashed_messages(
+                    with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages%}
+                    <div class="popup">
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                        <div class="right">
+                            <a class="link" href="{{ url_for('home_bp.home')}}" onclick="Hide(Bar);">x</a>
+                        </div>
+                    </div>
+                    {% endfor%}
+                {% endif%}
+                {% endwith%}
+                {% block content%}{% endblock %}
+            
+         </main>
+            <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    </body>
+</html>

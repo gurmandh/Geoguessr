@@ -1,0 +1,5 @@
+env
+.env
+data
+sqlite-tools-win32
+__pycache__

@@ -1,0 +1,174 @@
+
+
+/* general stuff */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
+    --bd-color: #c6b294;
+    --shadow-color: #ac9a8085;
+    --main-color: #405a52;
+    --head-color: #64374d;
+    --text-color: #091914;
+    --form-color: #b4a389;
+    --input-color: #99999957;
+}
+
+body {
+    /* background-color: var(--bd-color); */
+    background-image: url("https://getwallpapers.com/wallpaper/full/f/3/6/1445726-popular-planet-earth-desktop-wallpaper-1920x1200-high-resolution.jpg");
+    background-size: auto;
+    /* background-position: relative; */
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px; 
+}
+a {
+    text-decoration: none;
+    width: fit-content;
+    height: fit-content;
+
+} 
+
+
+/* Nav */
+header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    background-color: #000000;
+    border-color: #000000;
+    /*For adjusting sides of header*/
+    width: 100%;
+    margin-top: -5px;
+    margin-right: -10px;
+    margin-left: -10px;
+    margin-bottom: 10px;
+    opacity: 85%;
+    position: fixed;
+}
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+.main-container {
+    margin: 5px;
+}
+h1 {
+    color: #64374d;
+    margin-right: 5px;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    display: inline-block;
+    color: white;
+    padding: 10px;
+    align-items: center;
+}
+/* FORMS */
+.link:hover {
+    color: rgb(194, 55, 0);
+    background-color: #00ffee1c;
+}
+.player {
+    width: 100%;
+    height: 100%;
+}
+.login {
+    float: right;
+
+    background-color: var(--main-color);
+    border-radius: 0%;
+    height: 47.78px;
+    padding: 15px;
+}
+
+
+input {
+    width: 100%;
+    padding: 12px 8px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: var(--inptr-color);
+    border: 1px solid #000000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--input-color);
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: var(--main-color) ;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+}
+  
+input[type=submit]:hover {
+    background-color: var(--text-color) ;
+}
+  
+.content-section {
+    border-radius: 5px;
+    border: 1px solid #000000;
+    border-top: 3px solid #000000;
+    border-left: 3px solid #000000;
+    background-color: var(--form-color);
+    padding: 15px;
+    box-shadow: 25px 25px 1px var(--shadow-color);
+    
+}
+
+li {
+    list-style: none;
+    padding: 5px;
+    margin: 5px;
+}
+.popup {
+    background-color: #000000b6;
+    color: aliceblue;
+    padding: 10px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+div.alert.alert-message {
+    text-align: center;
+    width: 95%;
+}
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    width: 5%;
+}
+.right a {
+    padding: 5px;
+}
+
+.title, label {
+    color: var(--head-color);
+}
+.form-group-head {
+    border-style: none;
+}

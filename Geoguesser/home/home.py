@@ -14,8 +14,3 @@ def home():
 def all_users():
     users = User.query.all()
     return render_template('users.html', title='All Users', users=users)
-
-@home_bp.route('/profile/')
-def profile_page():
-    user = current_user
-    return render_template('profile_page.html', title='Profile Page', user=user)

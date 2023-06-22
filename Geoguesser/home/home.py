@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, url_for
 from ..models import User
+from flask_login import current_user
 
 
 home_bp = Blueprint('home_bp', __name__, template_folder='templates')
@@ -13,3 +14,8 @@ def home():
 def all_users():
     users = User.query.all()
     return render_template('users.html', title='All Users', users=users)
+
+@home_bp.route('/profile/')
+def profile_page():
+    user = current_user
+    return render_template('profile_page.html', title='Profile Page', user=user)

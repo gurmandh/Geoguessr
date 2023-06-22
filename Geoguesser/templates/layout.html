@@ -12,7 +12,8 @@
     </head>
     <body>
         {% include 'header.html' %}
-            <main role="main" class="container">
+            <main id="main" class="container">
+                <div class="spacer">.</div>
                 {% with messages = get_flashed_messages(
                     with_categories=true) %}
                 {% if messages %}
@@ -22,7 +23,7 @@
                             {{ message }}
                         </div>
                         <div class="right">
-                            <a class="link" href="{{ url_for('home_bp.home')}}" onclick="Hide(Bar);">x</a>
+                            <a class="link" id="link" href="{{ url_for('home_bp.home')}}" onclick="Hide(Bar);">x</a>
                         </div>
                     </div>
                     {% endfor%}

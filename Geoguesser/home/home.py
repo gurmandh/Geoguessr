@@ -3,7 +3,9 @@ from ..models import User
 from flask_login import current_user
 
 
-home_bp = Blueprint('home_bp', __name__, template_folder='templates')
+home_bp = Blueprint('home_bp', 
+__name__, 
+template_folder='templates')
 
 @home_bp.route('/')
 @home_bp.route('/home')

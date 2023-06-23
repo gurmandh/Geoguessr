@@ -28,6 +28,7 @@ class UpdateUserForm(FlaskForm):
     lastname =  StringField('Lastname', validators=[Length(max=50)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Register')
+    # picture alias firstname lastname email submit
     
     def validate_email(self, email):
         if email.data != current_user.email:

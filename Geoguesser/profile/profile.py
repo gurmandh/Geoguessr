@@ -19,8 +19,7 @@ import secrets
 profile_bp = Blueprint('profile_bp', 
 __name__, 
 url_prefix='/profile', 
-template_folder='templates', 
-static_folder='static')
+template_folder='templates', )
 
 
 def save_picture(form_picture):

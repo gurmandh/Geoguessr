@@ -26,7 +26,7 @@ def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'profile/profile_pics', picture_fn)
+    picture_path = os.path.join(app.root_path, 'profile/profile_pics/', picture_fn)
 
     output_size = (125, 125)
     i = Image.open(form_picture)
@@ -38,8 +38,8 @@ def save_picture(form_picture):
 @profile_bp.route('/', methods=['GET', 'POST'])
 @login_required
 def profile():
-    avatar_file = url_for('profile_bp', filename='profile_pics/' + current_user.avatar_file)
-    return render_template('profile.html', title='Account', avatar_file=avatar_file)
+    avatar = url_for('profile_bp', filename='profile_pics' + current_user.avatar)
+    return render_template('profile.html', title='Account', avatar=avatar, user=current_user)
 
 @profile_bp.route('/update/', methods=['GET', 'POST'])
 @login_required
@@ -50,20 +50,20 @@ def update_profile():
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
-            user.avatar_file = picture_file
-        user.username = save_picture(form.username.data)
-        user.email = save_picture(form.email.data)
-        user.firstname = save_picture(form.firstname.data)
-        user.lastname = save_picture(form.lastname.data)
+            user.avatar = picture_file
+        user.alias = form.username.data
+        user.email = form.email.data
+        user.firstname = form.firstname.data
+        user.lastname = form.lastname.data
         db.session.commit()
         flash('Your acount has been updated', 'complete')
         return redirect(url_for('profile_bp.profile'))
 
     elif request.method == 'GET':
-        form.username.data = user.username
+        form.username.data = user.alias
         form.email.data = user.email
         form.firstname.data = user.firstname
         form.lastname.data = user.lastname
 
-    avatar_file = url_for('profile_bp', filename='profile_pics/' + user.avatar_file)
-    return render_template('profile_update.html', title='Edit Profile', avatar_file=avatar_file, form=form)
+    avatar = url_for('profile_bp', filename='profile_pics/' + user.avatar)
+    return render_template('profile_update.html', title='Edit Profile', avatar=avatar, form=form)

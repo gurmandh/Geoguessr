@@ -68,7 +68,7 @@ def register():
             firstname = form.firstname.data,
             lastname = form.lastname.data,
             email = form.email.data,
-            alias = form.alias.data,
+            alias = form.username.data,
             password = hashed_password
             )
         db.session.add(user)

@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     alias = db.Column(db.String(50), nullable=False, unique=True)
     email = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String(60), nullable=False)
-    avatar = db.Column(db.String(40), nullable=False, default='default.png')
+    avatar = db.Column(db.String(40), nullable=False, default='\Geoguessr\Geoguesser\profile\profile_pics\default.png')
     account_created = db.Column(db.DateTime(), nullable=False, default=datetime.utcnow())
     active = db.Column(db.Boolean, nullable=False, default=True)
 

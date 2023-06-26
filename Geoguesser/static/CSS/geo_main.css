@@ -27,7 +27,7 @@
 
 body {
     /* background-color: var(--bd-color); */
-    background-image: url("https://getwallpapers.com/wallpaper/full/f/3/6/1445726-popular-planet-earth-desktop-wallpaper-1920x1200-high-resolution.jpg");
+    background-image: url("https://wallpapercave.com/wp/wp4523638.jpg");
     background-size: auto;
     /* background-position: relative; */
     background-attachment: fixed;
@@ -130,8 +130,34 @@ nav {
     height: 47.78px;
     padding: 15px;
 }
+.profile-box {
+    background-color: var(--bd-color);
+    padding: 10px;
+    border-radius: 45px;
+}
+.top-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-
+.pfp {
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: crisp-edges;
+    border-style: solid;
+    border-radius: 100%;
+    border-width: 2px;
+    border-color: var(--head-color);
+}
+.user-box {
+    background-color: var(--form-color);
+    padding: 20px;
+    border-radius: 10px;
+}
 input {
     width: 100%;
     padding: 12px 8px;

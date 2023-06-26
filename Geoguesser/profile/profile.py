@@ -10,7 +10,9 @@ from flask import (
 )
 from flask_login import current_user, login_required
 
+from PIL import Image
 from .. import db
+from ..models import User
 from Geoguesser.auth.forms import UpdateUserForm
 import os
 import secrets
@@ -19,14 +21,15 @@ import secrets
 profile_bp = Blueprint('profile_bp', 
 __name__, 
 url_prefix='/profile', 
-template_folder='templates', )
+template_folder='templates', 
+static_folder='static')
 
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'profile/profile_pics/', picture_fn)
+    picture_path = os.path.join(app.root_path, 'profile/static/profile_pics/', picture_fn)
 
     output_size = (125, 125)
     i = Image.open(form_picture)
@@ -38,7 +41,8 @@ def save_picture(form_picture):
 @profile_bp.route('/', methods=['GET', 'POST'])
 @login_required
 def profile():
-    avatar = url_for('profile_bp', filename='profile_pics' + current_user.avatar)
+    avatar = url_for('profile_bp.static', filename='profile_pics/'+ current_user.avatar)
+    print(avatar)
     return render_template('profile.html', title='Account', avatar=avatar, user=current_user)
 
 @profile_bp.route('/update/', methods=['GET', 'POST'])
@@ -65,5 +69,6 @@ def update_profile():
         form.firstname.data = user.firstname
         form.lastname.data = user.lastname
 
-    avatar = url_for('profile_bp', filename='profile_pics/' + user.avatar)
+    avatar = url_for('profile_bp.static', filename='profile_pics/'+current_user.avatar)
+    print(avatar)
     return render_template('profile_update.html', title='Edit Profile', avatar=avatar, form=form)

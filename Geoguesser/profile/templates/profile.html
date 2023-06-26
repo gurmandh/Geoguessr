@@ -5,7 +5,7 @@
     <h2 class="title">User: {{user.firstname}} {{user.lastname}}</h2>
     <div class="top-box">
         <div class="pfp-box">
-            <img class="pfp" src="{{user.avatar}}">
+            <img class="pfp" src="{{avatar}}">
         </div>
         <div class="user-info-box">
             <ul>
@@ -16,6 +16,6 @@
             </ul>
         </div>
     </div>
-    <div class='newbie'><p><a id="link" href="{{ url_for('profile_bp.profile_update')}}">Edit Account</a></p></div>
+    <div class='newbie'><p><a id="link" href="{{ url_for('profile_bp.update_profile')}}">Edit Account</a></p></div>
 </div>
 {% endblock %}

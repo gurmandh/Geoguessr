@@ -23,11 +23,11 @@ class RegistrationForm(FlaskForm):
     
 class UpdateUserForm(FlaskForm):
     picture = FileField('Avatar', validators=[FileAllowed(['jpg', 'png', 'jfif'])])
-    username = StringField('Aliaus/Username', validators=[DataRequired(), Length(min=5, max=20)])
+    username = StringField('Aliaus/Username', validators=[DataRequired(), Length(min=1, max=20)])
     firstname = StringField('Firstname', validators=[Length(max=50)])
     lastname =  StringField('Lastname', validators=[Length(max=50)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    submit = SubmitField('Register')
+    submit = SubmitField('Update')
     # picture username firstname lastname email submit
     
     def validate_email(self, email):
